@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>نظام التحقق من الشهادات - Certificate System</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="container">
+                <div class="nav-content">
+                    <div class="logo">
+                        <img src="images/logo.png" alt="Logo" class="logo-img">
+                        <span class="logo-text">نظام الشهادات</span>
+                    </div>
+                    <ul class="nav-menu">
+                        <li><a href="#home">الرئيسية</a></li>
+                        <li><a href="#verify">التحقق</a></li>
+                        <li><a href="#admin">لوحة التحكم</a></li>
+                        <li><a href="#contact">التواصل</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main">
+        <div class="container">
+            <!-- Verification Section -->
+            <section id="verify" class="verify-section">
+                <h1>التحقق من الشهادات</h1>
+                <p class="subtitle">تحقق من صحة الشهادة الخاصة بك من خلال إدخال رقم الشهادة</p>
+
+                <!-- Search Form -->
+                <div class="search-box">
+                    <input 
+                        type="text" 
+                        id="certificateNumber" 
+                        placeholder="أدخل رقم الشهادة (مثال: D211378)"
+                        class="search-input"
+                    >
+                    <button onclick="searchCertificate()" class="search-btn">بحث</button>
+                </div>
+
+                <!-- Certificate Display -->
+                <div id="certificateResult" class="certificate-result" style="display: none;">
+                    <div class="certificate-card">
+                        <div class="cert-header">
+                            <h2 id="certTitle">telc Deutsch B1</h2>
+                            <p id="certLevel">Europaratsstufe B1 · Council of Europe level B1</p>
+                        </div>
+
+                        <!-- Personal Information -->
+                        <div class="cert-section">
+                            <div class="info-row">
+                                <div class="info-item">
+                                    <label>الاسم</label>
+                                    <p id="certName">-</p>
+                                </div>
+                                <div class="info-item">
+                                    <label>الاسم الأول</label>
+                                    <p id="certFirstName">-</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Written Exam -->
+                        <div class="cert-section">
+                            <h3>الاختبار المكتوب</h3>
+                            <div class="scores">
+                                <div class="score-item">
+                                    <span>مهارة القراءة</span>
+                                    <span id="readingScore">-</span>
+                                </div>
+                                <div class="score-item">
+                                    <span>المجموع</span>
+                                    <span id="writtenTotal">-</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Oral Exam -->
+                        <div class="cert-section">
+                            <h3>الاختبار الشفوي</h3>
+                            <div class="scores">
+                                <div class="score-item">
+                                    <span>المجموع</span>
+                                    <span id="oralTotal">-</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Final Results -->
+                        <div class="cert-section">
+                            <div class="final-result">
+                                <div class="result-item">
+                                    <span>النتيجة النهائية</span>
+                                    <span id="finalScore">-</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Admin Section -->
+            <section id="admin" class="admin-section">
+                <h2>لوحة التحكم</h2>
+                <div class="admin-buttons">
+                    <button onclick="showAddForm()" class="btn btn-primary">إضافة شهادة جديدة</button>
+                </div>
+
+                <!-- Add Certificate Form -->
+                <div id="addForm" class="admin-form" style="display: none;">
+                    <h3>إضافة شهادة جديدة</h3>
+                    <form onsubmit="addCertificate(event)">
+                        <div class="form-group">
+                            <label>الاسم (اللقب)</label>
+                            <input type="text" id="addLastName" required>
+                        </div>
+                        <div class="form-group">
+                            <label>الاسم الأول</label>
+                            <input type="text" id="addFirstName" required>
+                        </div>
+                        <div class="form-group">
+                            <label>تاريخ الميلاد</label>
+                            <input type="date" id="addBirthDate" required>
+                        </div>
+                        <div class="form-group">
+                            <label>رقم الشهادة</label>
+                            <input type="text" id="addCertNumber" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">إضافة الشهادة</button>
+                    </form>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 نظام التحقق من الشهادات. جميع الحقوق محفوظة.</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
